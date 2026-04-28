@@ -1,0 +1,10 @@
+node_modules
+dist
+build
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.png
+.turbo
+.idea
+.vscode
+*.log

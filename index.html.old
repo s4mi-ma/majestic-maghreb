@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Majestic Maghreb — Cérémonies &amp; Festivals du Maroc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:      #8E3A1F;
+      --primary-dark: #6B2315;
+      --secondary:    #D4A373;
+      --tertiary:     #006D77;
+      --bg:           #F9F6F0;
+      --bg-alt:       #FFFFFF;
+      --dark:         #1a1a1a;
+      --text:         #2C1810;
+      --text-muted:   #7A5540;
+      --font-head:    'Noto Serif', Georgia, serif;
+      --font-body:    'Be Vietnam Pro', system-ui, sans-serif;
+      --r-card:       18px;
+      --r-img:        12px;
+      --shadow-card:  0 2px 20px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-img:   0 4px 18px rgba(0,0,0,0.18);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(107,35,21,0.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.22);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--secondary);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; }
+    .nav-links a {
+      display: block;
+      padding: 7px 18px;
+      color: rgba(255,255,255,0.88);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: 30px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .nav-links a:hover { background: rgba(212,163,115,0.22); color: var(--secondary); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 24px 100px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(155deg, #4E1508 0%, #7A2E15 35%, #8E3A1F 60%, #A5492C 85%, #B86038 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg,   rgba(212,163,115,0.07) 0, rgba(212,163,115,0.07) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(90deg,  rgba(212,163,115,0.07) 0, rgba(212,163,115,0.07) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(45deg,  rgba(212,163,115,0.04) 0, rgba(212,163,115,0.04) 1px, transparent 1px, transparent 42px),
+        repeating-linear-gradient(-45deg, rgba(212,163,115,0.04) 0, rgba(212,163,115,0.04) 1px, transparent 1px, transparent 42px);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, transparent 25%, rgba(0,0,0,0.28) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 820px;
+      animation: fadeUp 0.9s ease both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      opacity: 0.8;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.35);
+    }
+    .hero-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .orn-line  { width: 56px; height: 1px; background: var(--secondary); opacity: 0.55; }
+    .orn-gem   { width: 7px; height: 7px; background: var(--secondary); transform: rotate(45deg); opacity: 0.75; }
+    .hero p {
+      font-size: clamp(1rem, 2.2vw, 1.18rem);
+      color: rgba(255,255,255,0.78);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      animation: bob 2.2s ease-in-out infinite;
+      opacity: 0.45;
+    }
+    .hero-scroll span {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+    .hero-scroll svg { width: 18px; height: 18px; stroke: var(--secondary); fill: none; stroke-width: 2; stroke-linecap: round; }
+    @keyframes bob {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(7px); }
+    }
+
+    /* ── SECTION SHELL ── */
+    .section { padding: 80px 24px; scroll-margin-top: 58px; }
+    #ceremonies { background: var(--bg); }
+    #festivals  { background: #FFFFFF; }
+
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 52px;
+    }
+    .sec-num {
+      font-family: var(--font-head);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: var(--secondary);
+      opacity: 0.35;
+      line-height: 1;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .sec-text { flex: 1 1 auto; }
+    .sec-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      opacity: 0.65;
+      margin-bottom: 4px;
+    }
+    .sec-title {
+      font-family: var(--font-head);
+      font-size: clamp(1.7rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .sec-rule {
+      flex: 1 1 80px;
+      max-width: 260px;
+      height: 2px;
+      background: linear-gradient(to right, var(--secondary), transparent);
+      opacity: 0.45;
+    }
+    .sec-rule--teal { background: linear-gradient(to right, var(--tertiary), transparent); }
+
+    /* ── SUBSECTION LABEL (Mariages) ── */
+    .sub-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .sub-line  { flex: 1; height: 1px; background: var(--secondary); opacity: 0.28; }
+    .sub-label {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.07em;
+      padding: 6px 22px;
+      border: 1.5px solid rgba(142,58,31,0.18);
+      border-radius: 30px;
+      background: var(--bg);
+      white-space: nowrap;
+    }
+
+    /* ── ORNAMENTAL DIVIDER (between Mariages & Fêtes) ── */
+    .orn-divider {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 72px 0 56px;
+    }
+    .orn-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(212,163,115,0.5), transparent);
+    }
+    .orn-divider-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+    .orn-beads {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .orn-dot     { width: 5px; height: 5px; border-radius: 50%; background: var(--secondary); opacity: 0.5; }
+    .orn-diamond { width: 7px; height: 7px; background: var(--primary); transform: rotate(45deg); opacity: 0.4; }
+    .orn-divider-text {
+      font-family: var(--font-head);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      padding: 8px 26px;
+      border-radius: 30px;
+      background: rgba(142,58,31,0.06);
+      border: 1.5px solid rgba(142,58,31,0.14);
+    }
+
+    /* ── CARDS ── */
+    .cards-grid { display: grid; gap: 28px; }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--r-card);
+      box-shadow: var(--shadow-card);
+      border: 1px solid rgba(212,163,115,0.22);
+    }
+    #festivals .card { background: var(--bg); }
+
+    .card-top    { padding: 26px 30px 0; }
+    .card-bottom { padding: 18px 30px 28px; }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 1.38rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .card-title::after {
+      content: '';
+      display: block;
+      width: 34px;
+      height: 3px;
+      background: var(--secondary);
+      border-radius: 2px;
+      margin-top: 10px;
+    }
+    .card--teal .card-title::after { background: var(--tertiary); }
+
+    .card-subtitle {
+      font-family: var(--font-head);
+      font-size: 0.88em;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    .card-text {
+      font-size: 0.96rem;
+      color: #3C2518;
+      line-height: 1.85;
+      font-weight: 400;
+    }
+
+    /* ── GALLERY ── */
+    .gallery-wrap {
+      width: 100%;
+      overflow: visible;
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      overflow-y: visible;
+      gap: 12px;
+      padding: 8px 0 14px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      box-sizing: border-box;
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+
+    .gallery img {
+      display: block;
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: auto;
+      height: 300px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-img);
+      scroll-snap-align: start;
+      cursor: zoom-in;
+    }
+
+    @media (max-width: 768px) {
+      .gallery img { height: 220px; }
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,0.93);
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img  { max-width: 92vw; max-height: 90vh; border-radius: 8px; object-fit: contain; box-shadow: 0 8px 48px rgba(0,0,0,0.5); }
+    .lb-close {
+      position: absolute;
+      top: 18px; right: 24px;
+      background: none; border: none;
+      color: rgba(255,255,255,0.65);
+      font-size: 2.2rem;
+      cursor: pointer; line-height: 1;
+      transition: color 0.18s;
+    }
+    .lb-close:hover { color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 30px 24px;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+    footer strong { color: var(--secondary); font-weight: 500; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .section { padding: 56px 16px; }
+      .section-header { gap: 12px; margin-bottom: 36px; }
+      .sec-num  { font-size: 2.4rem; }
+      .sec-rule { display: none; }
+      .card-top    { padding: 20px 18px 0; }
+      .card-bottom { padding: 14px 18px 22px; }
+      .card-title  { font-size: 1.15rem; }
+      .gallery img { height: 220px; width: 300px; }
+      .gal-btn { width: 32px; height: 32px; font-size: 16px; }
+      .orn-divider { margin: 52px 0 40px; }
+      .sub-label { font-size: 0.85rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { min-height: 72vh; padding: 56px 16px 80px; }
+      .gallery img { height: 190px; width: 260px; }
+      .nav-brand { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">Majestic Maghreb</a>
+    <ul class="nav-links">
+      <li><a href="#ceremonies">Cérémonies</a></li>
+      <li><a href="#festivals">Festivals</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Maroc · Patrimoine Culturel Vivant</div>
+    <h1>Cérémonies &amp; Festivals du Maroc</h1>
+    <div class="hero-ornament">
+      <div class="orn-line"></div>
+      <div class="orn-gem"></div>
+      <div class="orn-line"></div>
+    </div>
+    <p>Un voyage à travers les rituels, la musique et l'identité culturelle marocaine.</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Défiler</span>
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</header>
+
+<main>
+
+<!-- ════════════════════════════════════════
+     SECTION 1 — CÉRÉMONIES
+════════════════════════════════════════ -->
+<section class="section" id="ceremonies">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="sec-num">01</div>
+    <div class="sec-text">
+      <div class="sec-label">Pratiques sociales et identitaires</div>
+      <h2 class="sec-title">Cérémonies</h2>
+    </div>
+    <div class="sec-rule"></div>
+  </div>
+
+  <!-- ── Mariages ── -->
+  <div class="sub-header">
+    <div class="sub-line"></div>
+    <div class="sub-label">Mariages</div>
+    <div class="sub-line"></div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 1 · Mariage Rbati -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Rbati</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/01.jpeg" alt="Mariage Rbati 1" loading="lazy">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/02.jpeg" alt="Mariage Rbati 2" loading="lazy">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/03.jpeg" alt="Mariage Rbati 3" loading="lazy">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/04.jpeg" alt="Mariage Rbati 4" loading="lazy">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/05.jpeg" alt="Mariage Rbati 5" loading="lazy">
+          <img src="Ceremonie/01-Marriage-Rabat-Sale/06.jpeg" alt="Mariage Rbati 6" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">À Rabat et Salé, le mariage reflète l'influence des dynasties almohade et alaouite, dans une ville historiquement liée au pouvoir politique. La tenue rbatie se distingue par sa structure élégante mais sobre, avec une takchita bien coupée, une ceinture marquée et des bijoux organisés sans excès. Contrairement au Nord, ici la mise en scène est plus contrôlée, traduisant une culture urbaine disciplinée. Musicalement, Rabat-Salé est associé au style gharnati, une variante andalouse issue de Grenade, introduite après les migrations andalouses, et caractérisée par un chant plus intimiste accompagné de oud, violon et percussions. Aujourd'hui, ce mariage évolue vers une fusion&nbsp;: orchestres modernes, musique chaâbi et influences internationales se combinent avec la tradition pour créer un événement hybride, entre héritage historique et modernité festive.</p>
+      </div>
+    </article>
+
+    <!-- 2 · Mariage Marrakchi -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Marrakchi</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/02-Marriage-Marrackech/01.jpeg" alt="Mariage Marrakchi 1" loading="lazy">
+          <img src="Ceremonie/02-Marriage-Marrackech/02.jpeg" alt="Mariage Marrakchi 2" loading="lazy">
+          <img src="Ceremonie/02-Marriage-Marrackech/03.jpeg" alt="Mariage Marrakchi 3" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Le mariage de Marrakech s'inscrit dans l'héritage des dynasties almoravide et almohade, qui ont fait de la ville une capitale impériale. Il se distingue par son caractère spectaculaire&nbsp;: couleurs intenses (rouge, or), takchita lourde et richement brodée, bijoux imposants traduisant la richesse caravanière du Sud. Le maquillage est plus marqué, en accord avec cette esthétique visuelle forte. La musique y est festive et puissante, dominée par la dakka marrakchia, les percussions collectives et le chaâbi, qui créent une ambiance énergique et participative où toute l'assemblée est impliquée. Ce mariage est une mise en scène de puissance sociale et d'abondance, reflet du rôle historique de Marrakech comme carrefour commercial et politique.</p>
+      </div>
+    </article>
+
+    <!-- 3 · Mariage Fassi -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Fassi</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/03-Marriage-Fes/01.jpeg" alt="Mariage Fassi 1" loading="lazy">
+          <img src="Ceremonie/03-Marriage-Fes/02.jpeg" alt="Mariage Fassi 2" loading="lazy">
+          <img src="Ceremonie/03-Marriage-Fes/03.jpeg" alt="Mariage Fassi 3" loading="lazy">
+          <img src="Ceremonie/03-Marriage-Fes/04.jpeg" alt="Mariage Fassi 4" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">À Fès, le mariage est l'expression la plus aristocratique du Maroc, héritée des dynasties idrisside et mérinide. La takchita fassia, très volumineuse, symbolise à la fois richesse (quantité de tissu) et pudeur, valeurs centrales d'une ville savante et conservatrice. Les broderies fines (tarz fassi), les coiffes dorées et les bijoux sophistiqués traduisent un raffinement intellectuel plus qu'ostentatoire. La musique est dominée par l'école andalouse de Fès, considérée comme la plus ancienne et la plus rigoureuse, structurée autour de la nouba, une suite musicale complexe et codifiée. Ici, le mariage devient une représentation du prestige culturel et du savoir religieux.</p>
+      </div>
+    </article>
+
+    <!-- 4 · Mariage Amazigh -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Amazigh</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/04-Marriage-Amazigh/01.jpeg" alt="Mariage Amazigh 1" loading="lazy">
+          <img src="Ceremonie/04-Marriage-Amazigh/02.jpeg" alt="Mariage Amazigh 2" loading="lazy">
+          <img src="Ceremonie/04-Marriage-Amazigh/03.jpeg" alt="Mariage Amazigh 3" loading="lazy">
+          <img src="Ceremonie/04-Marriage-Amazigh/04.jpeg" alt="Mariage Amazigh 4" loading="lazy">
+          <img src="Ceremonie/04-Marriage-Amazigh/05.jpeg" alt="Mariage Amazigh 5" loading="lazy">
+          <img src="Ceremonie/04-Marriage-Amazigh/06.jpeg" alt="Mariage Amazigh 6" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Le mariage amazigh, présent dans l'Atlas et le Souss, est enraciné dans des traditions préislamiques intégrées ensuite par les dynasties amazighes (Almoravides, Almohades). La mariée porte des vêtements colorés et des bijoux en argent, souvent chargés de symboles protecteurs. Contrairement aux mariages urbains, l'accent est mis sur la communauté&nbsp;: chants collectifs, danses comme l'ahidous ou l'ahwach, et participation de tout le village. La musique repose sur des rythmes répétitifs et des chœurs puissants, où la voix collective prime sur l'individu. Ce mariage exprime une continuité identitaire forte, centrée sur la tribu et la transmission culturelle.</p>
+      </div>
+    </article>
+
+    <!-- 5 · Mariage Tétouanais -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Tétouanais</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/05-Marriage%20Tetounae/01.jpeg" alt="Mariage Tétouanais 1" loading="lazy">
+          <img src="Ceremonie/05-Marriage%20Tetounae/02.jpeg" alt="Mariage Tétouanais 2" loading="lazy">
+          <img src="Ceremonie/05-Marriage%20Tetounae/03.jpeg" alt="Mariage Tétouanais 3" loading="lazy">
+          <img src="Ceremonie/05-Marriage%20Tetounae/04.jpeg" alt="Mariage Tétouanais 4" loading="lazy">
+          <img src="Ceremonie/05-Marriage%20Tetounae/05.jpeg" alt="Mariage Tétouanais 5" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Le mariage de Tétouan est profondément marqué par l'héritage andalou introduit après la chute de Grenade, lorsque les familles andalouses s'installent dans le nord sous les Wattassides puis les Saadiens. Cette influence se traduit par une esthétique raffinée&nbsp;: takchita ancienne aux broderies fines, voile couvrant et bijoux délicats symbolisant la pudeur aristocratique. Le rituel de la mariée portée (type palanquin/ʿamariya) incarne une élévation symbolique héritée des cours andalouses, où la femme était honorée et protégée du regard public. Musicalement, le mariage est dominé par la musique arabo-andalouse (al-Ala), caractérisée par des instruments comme le oud, le violon et le rebab, ainsi que par des chants féminins traditionnels et poétiques. Ce mariage est donc une survivance directe d'une culture exilée transformée en identité locale.</p>
+      </div>
+    </article>
+
+    <!-- 6 · Mariage Sahraoui -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Mariage Sahraoui</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/06-Marriage-Saharien/01.jpeg" alt="Mariage Sahraoui 1" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/02.jpeg" alt="Mariage Sahraoui 2" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/03.jpeg" alt="Mariage Sahraoui 3" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/04.jpeg" alt="Mariage Sahraoui 4" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/05.jpeg" alt="Mariage Sahraoui 5" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/06.jpeg" alt="Mariage Sahraoui 6" loading="lazy">
+          <img src="Ceremonie/06-Marriage-Saharien/07.jpeg" alt="Mariage Sahraoui 7" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Le mariage sahraoui, lié aux régions du Sahara marocain, reflète une culture nomade influencée par les échanges transsahariens sous les Saadiens et les Alaouites. La mariée porte la melfa, vêtement ample adapté au désert, avec des bijoux légers mais symboliques. La musique est dominée par les chants hassanis, accompagnés de percussions simples et de rythmes lents, souvent associés à des danses élégantes et ondulées. La poésie occupe une place centrale&nbsp;: les chants racontent l'honneur, l'amour et les alliances tribales. Ce mariage privilégie la parole, la mémoire et l'identité plutôt que l'apparat matériel.</p>
+      </div>
+    </article>
+
+  </div><!-- /cards mariages -->
+
+  <!-- ── DIVIDER: Fêtes Religieuses ── -->
+  <div class="orn-divider">
+    <div class="orn-divider-line"></div>
+    <div class="orn-divider-body">
+      <div class="orn-beads">
+        <div class="orn-dot"></div><div class="orn-diamond"></div><div class="orn-dot"></div>
+      </div>
+      <div class="orn-divider-text">Fêtes Religieuses</div>
+      <div class="orn-beads">
+        <div class="orn-dot"></div><div class="orn-diamond"></div><div class="orn-dot"></div>
+      </div>
+    </div>
+    <div class="orn-divider-line"></div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- 7 · Aïd al-Fitr -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Aïd al-Fitr <span class="card-subtitle">(Aïd Sghir)</span></h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/07-Eid-Sghir/01.jpeg" alt="Aïd Sghir 1" loading="lazy">
+          <img src="Ceremonie/07-Eid-Sghir/02.jpeg" alt="Aïd Sghir 2" loading="lazy">
+          <img src="Ceremonie/07-Eid-Sghir/03.jpeg" alt="Aïd Sghir 3" loading="lazy">
+          <img src="Ceremonie/07-Eid-Sghir/04.jpeg" alt="Aïd Sghir 4" loading="lazy">
+          <img src="Ceremonie/07-Eid-Sghir/05.jpeg" alt="Aïd Sghir 5" loading="lazy">
+          <img src="Ceremonie/07-Eid-Sghir/06.jpeg" alt="Aïd Sghir 6" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">L'Aïd al-Fitr trouve son origine au VIIe siècle avec le prophète Muhammad, qui institue cette fête à Médine comme célébration religieuse marquant la fin du Ramadan, mois de jeûne et de purification. Introduit au Maroc avec l'islam dès l'époque idrisside (VIIIe-IXe siècle), il devient rapidement un pilier de la vie sociale et religieuse. Au Maroc, appelé "Aïd Sghir", il commence par la prière collective suivie de la zakat al-fitr, acte obligatoire de solidarité envers les plus démunis. Avec le temps, il s'est enrichi de pratiques culturelles locales&nbsp;: port de vêtements neufs, préparation de pâtisseries comme chebakia ou sellou, et visites familiales. Cette fête illustre une évolution où le religieux structure le social, transformant un rite spirituel en moment de cohésion nationale et familiale.</p>
+      </div>
+    </article>
+
+    <!-- 8 · Aïd al-Adha -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Aïd al-Adha <span class="card-subtitle">(Aïd el-Kebir)</span></h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/08-Eid-Kbir/01.jpeg" alt="Aïd el-Kebir 1" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/02.jpeg" alt="Aïd el-Kebir 2" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/03.jpeg" alt="Aïd el-Kebir 3" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/04.jpeg" alt="Aïd el-Kebir 4" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/05.jpeg" alt="Aïd el-Kebir 5" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/06.jpeg" alt="Aïd el-Kebir 6" loading="lazy">
+          <img src="Ceremonie/08-Eid-Kbir/07.jpeg" alt="Aïd el-Kebir 7" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">L'Aïd al-Adha, ou "Aïd el-Kebir", commémore l'épisode coranique du prophète Ibrahim prêt à sacrifier son fils en signe de foi, rituel institué dans la tradition islamique dès le VIIe siècle. Introduit au Maroc avec l'islam et renforcé sous les grandes dynasties comme les Almoravides et les Alaouites, il devient un événement central mêlant religion, économie et société. Le sacrifice rituel (udhiyah) et le partage de la viande en trois parts (famille, proches, pauvres) structurent un modèle de redistribution sociale. Historiquement stable, cette pratique connaît aujourd'hui des transformations&nbsp;: urbanisation, hausse des coûts et même interventions politiques récentes face aux crises climatiques. Ainsi, l'Aïd al-Adha illustre une tradition ancienne qui s'adapte aux réalités contemporaines tout en conservant sa signification spirituelle.</p>
+      </div>
+    </article>
+
+    <!-- 9 · Achoura -->
+    <article class="card">
+      <div class="card-top">
+        <h3 class="card-title">Achoura</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Ceremonie/09-Aachora/01.jpeg" alt="Achoura 1" loading="lazy">
+          <img src="Ceremonie/09-Aachora/02.jpeg" alt="Achoura 2" loading="lazy">
+          <img src="Ceremonie/09-Aachora/03.jpeg" alt="Achoura 3" loading="lazy">
+          <img src="Ceremonie/09-Aachora/04.jpeg" alt="Achoura 4" loading="lazy">
+          <img src="Ceremonie/09-Aachora/05.jpeg" alt="Achoura 5" loading="lazy">
+          <img src="Ceremonie/09-Aachora/06.jpeg" alt="Achoura 6" loading="lazy">
+          <img src="Ceremonie/09-Aachora/07.jpeg" alt="Achoura 7" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Achoura, célébrée le 10 du mois de Muharram, possède une origine islamique liée à plusieurs événements, notamment le jeûne pratiqué en mémoire de faits prophétiques anciens. Introduite au Maroc avec l'islam, elle a progressivement évolué vers une célébration hybride mêlant religieux et pratiques populaires. Contrairement aux deux Aïds, Achoura au Maroc prend une dimension festive&nbsp;: jeux d'eau, distribution de jouets aux enfants, percussions (taarija) et chants dans les quartiers. Cette transformation s'explique par l'intégration de traditions locales et préislamiques dans un cadre islamique. Ainsi, Achoura illustre parfaitement la capacité de la culture marocaine à absorber un rite religieux et à le transformer en célébration sociale vivante, où la mémoire religieuse coexiste avec l'expression populaire.</p>
+      </div>
+    </article>
+
+  </div><!-- /cards fêtes -->
+
+</div><!-- /section-inner -->
+</section>
+
+<!-- ════════════════════════════════════════
+     SECTION 2 — FESTIVALS
+════════════════════════════════════════ -->
+<section class="section" id="festivals">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="sec-num">02</div>
+    <div class="sec-text">
+      <div class="sec-label">Musique, patrimoine et célébration</div>
+      <h2 class="sec-title">Festivals</h2>
+    </div>
+    <div class="sec-rule sec-rule--teal"></div>
+  </div>
+
+  <div class="cards-grid">
+
+    <!-- F1 · Gnaoua -->
+    <article class="card card--teal">
+      <div class="card-top">
+        <h3 class="card-title">Festival Gnaoua et Musiques du Monde</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Festival/01-Gnawa/01.jpeg" alt="Festival Gnaoua 1" loading="lazy">
+          <img src="Festival/01-Gnawa/02.jpeg" alt="Festival Gnaoua 2" loading="lazy">
+          <img src="Festival/01-Gnawa/03.jpeg" alt="Festival Gnaoua 3" loading="lazy">
+          <img src="Festival/01-Gnawa/04.jpeg" alt="Festival Gnaoua 4" loading="lazy">
+          <img src="Festival/01-Gnawa/05.jpeg" alt="Festival Gnaoua 5" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Créé en 1998 à Essaouira, ce festival s'inscrit dans la reconnaissance d'un héritage longtemps marginalisé&nbsp;: la culture gnaoua, issue des descendants d'esclaves d'Afrique subsaharienne introduits au Maroc entre le XVIe et le XVIIe siècle. Il met au centre les maâlems, à la fois musiciens et guides spirituels, dont la musique repose sur le guembri et les qraqeb, créant des rythmes répétitifs proches de la transe rituelle. Le festival dépasse aujourd'hui le cadre traditionnel en favorisant des fusions avec le jazz, le blues ou le reggae, transformant une pratique initiatique en langage musical universel. Il symbolise ainsi la réhabilitation d'une mémoire africaine profonde au cœur de l'identité marocaine.</p>
+      </div>
+    </article>
+
+    <!-- F2 · Mawazine -->
+    <article class="card card--teal">
+      <div class="card-top">
+        <h3 class="card-title">Festival Mawazine</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Festival/02-Mawazine/01.jpeg" alt="Mawazine 1" loading="lazy">
+          <img src="Festival/02-Mawazine/02.jpeg" alt="Mawazine 2" loading="lazy">
+          <img src="Festival/02-Mawazine/03.jpeg" alt="Mawazine 3" loading="lazy">
+          <img src="Festival/02-Mawazine/04.jpeg" alt="Mawazine 4" loading="lazy">
+          <img src="Festival/02-Mawazine/05.jpeg" alt="Mawazine 5" loading="lazy">
+          <img src="Festival/02-Mawazine/06.jpeg" alt="Mawazine 6" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Organisé à Rabat depuis 2001, Mawazine reflète une autre dimension du Maroc contemporain&nbsp;: celle d'un pays ouvert sur la mondialisation. Contrairement aux festivals traditionnels, il met en scène des artistes internationaux aux côtés de la musique marocaine moderne (chaâbi, pop, rap). Cette coexistence traduit l'évolution des grandes villes marocaines sous l'influence des dynamiques politiques et économiques contemporaines. Mawazine n'est pas seulement un festival, mais un outil de diplomatie culturelle, montrant un Maroc moderne capable de dialoguer avec les cultures du monde tout en valorisant ses propres artistes.</p>
+      </div>
+    </article>
+
+    <!-- F3 · Andalousies Atlantiques -->
+    <article class="card card--teal">
+      <div class="card-top">
+        <h3 class="card-title">Festival des Andalousies Atlantiques</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Festival/03-FestivalAndalousieAtlentique/01.jpeg" alt="Andalousies Atlantiques 1" loading="lazy">
+          <img src="Festival/03-FestivalAndalousieAtlentique/02.jpeg" alt="Andalousies Atlantiques 2" loading="lazy">
+          <img src="Festival/03-FestivalAndalousieAtlentique/03.jpeg" alt="Andalousies Atlantiques 3" loading="lazy">
+          <img src="Festival/03-FestivalAndalousieAtlentique/04.jpeg" alt="Andalousies Atlantiques 4" loading="lazy">
+          <img src="Festival/03-FestivalAndalousieAtlentique/05.jpeg" alt="Andalousies Atlantiques 5" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Fondé en 2003 également à Essaouira, ce festival est une véritable reconstitution historique de l'héritage andalou partagé entre musulmans, juifs et chrétiens. Il célèbre une mémoire issue d'Al-Andalus, reconstruite après les expulsions et enrichie par les dynasties marocaines qui ont accueilli ces populations. Musicalement, il met en avant les traditions arabo-andalouses, le flamenco et les chants judéo-marocains, créant un dialogue interculturel unique. Plus qu'un événement artistique, il représente une vision politique et culturelle du Maroc comme espace de coexistence et de transmission, où la musique devient un outil de mémoire et de tolérance.</p>
+      </div>
+    </article>
+
+    <!-- F4 · Cerises de Sefrou -->
+    <article class="card card--teal">
+      <div class="card-top">
+        <h3 class="card-title">Festival des Cerises de Sefrou</h3>
+      </div>
+      <div class="gallery-wrap">
+<div class="gallery">
+          <img src="Festival/04-FestivalCeriseSefrou/01.jpeg" alt="Cerises de Sefrou 1" loading="lazy">
+          <img src="Festival/04-FestivalCeriseSefrou/02.jpeg" alt="Cerises de Sefrou 2" loading="lazy">
+          <img src="Festival/04-FestivalCeriseSefrou/03.jpeg" alt="Cerises de Sefrou 3" loading="lazy">
+          <img src="Festival/04-FestivalCeriseSefrou/04.jpeg" alt="Cerises de Sefrou 4" loading="lazy">
+        </div>
+</div>
+      <div class="card-bottom">
+        <p class="card-text">Souvent associé à la région de Chefchaouen dans l'imaginaire populaire mais historiquement célébré à Sefrou, ce festival remonte au début du XXe siècle et est lié au cycle agricole des cerises. Il reflète une culture rurale profondément enracinée, où la fête célèbre la fertilité, la nature et la communauté. Les défilés, les costumes traditionnels et l'élection de la "Reine des cerises" rappellent les anciennes fêtes saisonnières. Musicalement, on y retrouve des chants populaires, du folklore local et des danses collectives. Ce festival représente une autre facette du Maroc&nbsp;: non pas impériale ou urbaine, mais agricole et communautaire, où la célébration est liée au rythme de la terre.</p>
+      </div>
+    </article>
+
+  </div><!-- /cards festivals -->
+
+</div><!-- /section-inner -->
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Majestic Maghreb &mdash; <strong>Présentation culturelle 2026</strong></p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" id="lb-close" aria-label="Fermer">&times;</button>
+  <img id="lb-img" src="" alt="Agrandissement">
+</div>
+
+<script>
+  /* Lightbox */
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+
+  document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lb-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>

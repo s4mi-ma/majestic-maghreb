@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-primary: #8E3A1F;
+  --color-primary-dark: #6B2315;
+  --color-secondary: #D4A373;
+  --color-tertiary: #006D77;
+  --color-surface: #F9F6F0;
+  --color-surface-alt: #FFFFFF;
+  --color-dark: #1a1a1a;
+  --color-body: #2C1810;
+  --color-muted: #7A5540;
+
+  --font-head: 'Noto Serif', Georgia, serif;
+  --font-body: 'Be Vietnam Pro', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-surface);
+  color: var(--color-body);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%      { transform: translateX(-50%) translateY(7px); }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.9s ease both;
+}
+
+.animate-bob {
+  animation: bob 2.2s ease-in-out infinite;
+}
+
+/* Hero pattern overlay */
+.hero-pattern::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg,   rgba(212,163,115,0.07) 0, rgba(212,163,115,0.07) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(90deg,  rgba(212,163,115,0.07) 0, rgba(212,163,115,0.07) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(45deg,  rgba(212,163,115,0.04) 0, rgba(212,163,115,0.04) 1px, transparent 1px, transparent 42px),
+    repeating-linear-gradient(-45deg, rgba(212,163,115,0.04) 0, rgba(212,163,115,0.04) 1px, transparent 1px, transparent 42px);
+}
+
+.hero-pattern::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 25%, rgba(0,0,0,0.28) 100%);
+}
+
+/* Card title underline */
+.card-title-line::after {
+  content: '';
+  display: block;
+  width: 34px;
+  height: 3px;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+.card-title-line-primary::after {
+  background: var(--color-secondary);
+}
+.card-title-line-teal::after {
+  background: var(--color-tertiary);
+}
+
+/* Gallery scroll container */
+.gallery-scroll {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: visible;
+  gap: 12px;
+  padding: 8px 0 14px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-scroll img {
+  display: block;
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 88%;
+  height: 420px;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  scroll-snap-align: start;
+  cursor: zoom-in;
+  object-fit: cover;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .gallery-scroll img {
+    width: 85%;
+    height: 420px;
+  }
+}
+
+@media (max-width: 767px) {
+  .gallery-scroll img {
+    width: 88%;
+    height: 280px;
+  }
+}

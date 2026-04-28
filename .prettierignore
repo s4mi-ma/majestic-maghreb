@@ -1,0 +1,8 @@
+node_modules
+dist
+build
+public
+.husky
+.git
+.turbo
+*.lock
