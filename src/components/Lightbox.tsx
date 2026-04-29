@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react';
+import { useEffect } from 'react';
 
 interface LightboxProps {
   src: string | null;
@@ -7,23 +7,18 @@ interface LightboxProps {
 }
 
 export default function Lightbox({ src, alt, onClose }: LightboxProps) {
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    },
-    [onClose]
-  );
-
   useEffect(() => {
-    if (src) {
-      document.body.style.overflow = 'hidden';
-      document.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = '';
-      document.removeEventListener('keydown', handleKeyDown);
+    if (!src) return;
+
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
     };
-  }, [src, handleKeyDown]);
+    window.addEventListener('keydown', handler);
+
+    return () => {
+      window.removeEventListener('keydown', handler);
+    };
+  }, [src, onClose]);
 
   if (!src) return null;
 
